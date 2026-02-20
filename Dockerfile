@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 
 # create and set a working directory to dump our files into
-WORKDIR /app
+WORKDIR ./app
 
 # copy only the requirements.txt file
 COPY ./EmailAnarchy/requirements.txt ./app
