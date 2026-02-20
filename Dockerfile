@@ -27,7 +27,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # open port 8501
 EXPOSE 8501
 
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+HEALTHCHECK CMD curl --fail http://localhost:8501/app/_stcore/health
 
 # run streamlit app
 ENTRYPOINT ["streamlit", "run", "src/server.py", "--server.port=8501", "--server.address=0.0.0.0"]
