@@ -3,9 +3,6 @@ FROM python:3.13-slim
 
 LABEL authors="systemspro.tech"
 
-# create and set a working directory to dump our files into
-WORKDIR /app
-
 # Update and install some useful tools
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -15,11 +12,14 @@ RUN apt-get update && apt-get install -y \
 
 ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 
+# create and set a working directory to dump our files into
+WORKDIR /app
+
 # copy only the requirements.txt file
-COPY ./requirements.txt ./
+COPY ./EmailAnarchy/requirements.txt ./app
 
 # copy our src directory to /code/src within container
-COPY src ./src
+COPY ./EmailAnarchy/src ./app/src
 
 # pip install list of required python packages
 RUN pip install --no-cache-dir -r requirements.txt
