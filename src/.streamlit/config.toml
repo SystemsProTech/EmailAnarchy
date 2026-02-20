@@ -1,1 +1,2 @@
-# baseUrlPath = "app"
+[server]
+baseUrlPath = "/app"
