@@ -13,14 +13,13 @@ RUN apt-get update && apt-get install -y \
 ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 
 # create and set a working directory to dump our files into
-RUN mkdir app
-WORKDIR ./app
+WORKDIR /app
 
 # copy only the requirements.txt file
-COPY ./EmailAnarchy/requirements.txt ./app
+COPY ./EmailAnarchy/requirements.txt .
 
-# copy our src directory to /code/src within container
-COPY ./EmailAnarchy/src ./app/src
+# copy our src directory to /app/src within container
+COPY ./EmailAnarchy/src ./src
 
 # pip install list of required python packages
 RUN pip install --no-cache-dir -r requirements.txt
