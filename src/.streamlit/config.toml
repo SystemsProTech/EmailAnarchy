@@ -1,2 +1,7 @@
 [server]
-baseUrlPath = "/app"
+baseUrlPath = "app"
+enableCORS = false
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false
